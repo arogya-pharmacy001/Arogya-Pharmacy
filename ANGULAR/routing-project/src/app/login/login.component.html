@@ -58,16 +58,39 @@
               <h2>Arogya Pharmacy</h2>
               </div>
               <p class="login-card-description">Sign into your account</p>
-              <form #loginRef="ngForm" (ngSubmit)="loginUser(loginRef.value)" name="myform">
+              <form autocomplete="off" #loginRef="ngForm" (ngSubmit)="loginUser(loginRef.value)" name="myform">
                   <div class="form-group">
                     <label for="username" class="sr-only">Username</label>
-                    <input type="text" id="cust_login"  name="cust_login"  class="form-control" placeholder="Username" ngModel>
-                    <div class="invalid-feedback1 text-danger" style="display: none;">*Required Username</div>
+                    <input type="text" id="cust_login"  name="cust_login"  class="form-control" placeholder="Username" ngModel #u1Ref="ngModel" required minlength="4">
+                   
+                    <!-- <div class="invalid-feedback1 text-danger" style="display: none;">*Required Username</div> -->
+                 
+                    <div *ngIf="u1Ref.errors && (u1Ref.dirty || u1Ref.touched)">
+              
+                      <span [hidden]="!u1Ref.errors.required" style="color: red">
+                              *UserName is Required       
+                      </span>
+                      
+                      <span [hidden]="!u1Ref.errors.minlength"  style="color: red">
+                              *UserName Must Be at least 4 character
+                      </span>  
+        
+                    </div>
+                 
+                 
                   </div>
                   <div class="form-group mb-4">
                     <label for="password" class="sr-only">Password</label>
-                    <input type="password" name="pass" id="pass" class="form-control" placeholder="Password" ngModel>
-                    <div class="invalid-feedback2 text-danger" style="display: none;">*Required Password</div>
+                    <input type="password" name="pass" id="pass" class="form-control" placeholder="Password" ngModel #passRef="ngModel" required>
+                    <div *ngIf="passRef.errors && (passRef.dirty || passRef.touched)">
+
+                      <span [hidden]="!passRef.errors.required" style="color: red">
+                              *Password is Required             
+                      </span>
+        
+                    </div>
+
+                    <!-- <div class="invalid-feedback2 text-danger" style="display: none;">*Required Password</div> -->
                   </div>
                   <nav class="login-card-footer-nav">
                     <div class="custom-control custom-radio">
