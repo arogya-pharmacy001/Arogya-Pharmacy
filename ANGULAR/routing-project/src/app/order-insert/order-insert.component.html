@@ -2,7 +2,7 @@
 <div class=container>
     <h2 class=header>Store Order Details</h2>
     <form [formGroup]="orderInfo" (ngSubmit)="orderinsert()">
-        <label>Order id</label>
+        <label>Order id[OPTIONAL]</label>
         <input type="number" formControlName="order_id"/><br/>
         <label>No of Items</label>
         <input type="number" formControlName="items"/><br/>
