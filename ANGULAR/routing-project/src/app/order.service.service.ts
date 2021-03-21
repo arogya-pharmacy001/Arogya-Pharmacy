@@ -19,7 +19,7 @@ export class OrderServiceService {
 insertOrders(StockRef:any):Observable<string>{
     
 // this.httpClient.post("http://localhost:9191/order/insert",StockRef).subscribe(data=>console.log(data));
-return this.httpClient.post("",StockRef,{responseType:'text'})
+return this.httpClient.post("http://localhost:9191/order/insert",StockRef,{responseType:'text'})
   }
 
 updateOrders(StockRef:any):Observable<string>{

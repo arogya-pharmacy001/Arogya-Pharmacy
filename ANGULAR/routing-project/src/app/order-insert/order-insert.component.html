@@ -1,5 +1,6 @@
+<app-admin-dashboard></app-admin-dashboard>
 <div class=container>
-    <h2>Store Order Details</h2>
+    <h2 class=header>Store Order Details</h2>
     <form [formGroup]="orderInfo" (ngSubmit)="orderinsert()">
         <label>Order id</label>
         <input type="number" formControlName="order_id"/><br/>
@@ -13,9 +14,20 @@
         <input type="number" formControlName="cust_id"/><br/>
         <label>Order Date</label>
         <input type="date" formControlName="order_date"/><br/>
-        <input type="submit" value="store product info"/>
+
+        <div class="text-center py-4">
+            <button type="submit" value="store product Info" class="btn btn-danger mr-2">Store Product Info</button>
+            <button  class="btn btn-secondary" value="Back" (click)="onpress()">Back</button>
+        </div>
+
+
+<!--        <input type="submit" value="store product info"/>
         <input type="reset" value="reset"/><br/><br/>
         <input type="button" value="back" (click)="onpress()">
+
+          {{msg}}
+    -->
     </form>
-    {{msg}}
+    <h3 id="msg">{{msg}}</h3>
+  
 </div>
