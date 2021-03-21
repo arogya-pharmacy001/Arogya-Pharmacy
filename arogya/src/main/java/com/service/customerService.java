@@ -83,13 +83,13 @@ public class customerService {
 	public Customer loginCustomer(Customer c) {
 		List<Customer> listofC=customerRepository.findAll();
 		Customer cust1=null;
-		int flag=0;
+		
 		for(Customer cust:listofC)
 		{
 			//if(cust.getCust_id()==c.getCust_id()) {
 			if((cust.getCust_login().equals(c.getCust_login()))&&(cust.getPass().equals(c.getPass()))) {
 				cust1=cust;
-				flag=1;
+				
 			}
 		}
 		

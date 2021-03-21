@@ -119,7 +119,7 @@ onClickHome(){
 
           else{
             
-            if(desig=="customer" && user!='' && pass!='' )
+            if(desig=="customer" )
             {
               console.log(obj);
               this.customer1=obj;
@@ -129,7 +129,7 @@ onClickHome(){
           
             else 
           
-             if(desig=="admin" && user!='' && pass!='' )
+             if(desig=="admin" )
             {
                 console.log(obj);
                 this.customer1=obj;
