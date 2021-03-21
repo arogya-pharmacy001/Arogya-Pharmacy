@@ -29,7 +29,7 @@ export class OrderInsertComponent implements OnInit {
 
 orderinsert()
 {
-  let ordRef= new this.orderInfo.value;
+  let ordRef= this.orderInfo.value;
   return this.orderSer.insertOrders(ordRef).subscribe(data=>this.msg=data);
 }
 onpress(){

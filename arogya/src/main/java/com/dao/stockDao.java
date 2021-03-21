@@ -45,7 +45,20 @@ public class stockDao {
 		return list;
 	}
 
-	
+	public int upd(float pric, int id)
+	{
+		EntityManager emf = factory.createEntityManager();
+		//Query qry = emf.createNativeQuery("update stock set price=pric where stock_id=id");
+		
+		
+		String INSERT_SQL1 = "update stock set price=?1 where stock_id=?2";
+		emf.createQuery(INSERT_SQL1).setParameter(1, pric).setParameter(2, id)
+		
+		.executeUpdate();
+		
+		
+		return 1;
+	}
 	
 	
 	

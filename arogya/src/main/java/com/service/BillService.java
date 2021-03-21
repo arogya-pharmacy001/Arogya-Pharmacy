@@ -76,9 +76,13 @@ public class BillService {
 	
 	public int addToBillTable(cart cv)
 	{
-		
+		if( bd.addToBill(cv)==2)
+		{
+		return 2;	
+		}
+		else {
 		 return bd.addToBill(cv);
-		
+		}
 	}
 	
 	public List<Bill> findBycustIdservice(int cust_id) {

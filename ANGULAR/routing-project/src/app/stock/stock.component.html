@@ -51,7 +51,12 @@
                         </div>
                         <h3 class="mb-0 font-weight-semibold">{{Stock.item_name}}</h3>
 
+                        
+                        <a href="#" class="text-muted" data-abc="true">Quantity: {{Stock.quantity}}</a>
+
+
                          <a href="#" class="text-muted" data-abc="true">Quantity : {{Stock.quantity}}</a>
+
                         <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
                         <div class="text-muted mb-3">Rs. {{Stock.price}}</div> <button type="button" class="btn bg-cart" data-toggle="modal" data-target="#exampleModalCenter" (click)="add(Stock.stock_id,customer.cust_id)"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
                     </div>

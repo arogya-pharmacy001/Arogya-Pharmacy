@@ -4,6 +4,7 @@ import { Bill } from '../bill.model';
 import { BillService } from '../bill.service';
 import { cart } from '../cart.model';
 import { Customer } from '../customer.module';
+import { OrderServiceService } from '../order.service.service';
 
 @Component({
   selector: 'app-customer-cart',
@@ -17,7 +18,7 @@ customer =new Customer;
 bill = new Bill;
 billinfo:Array<Bill>=[];
 msg:string="";
-constructor(public billService : BillService,public router:Router) { }
+constructor(public billService : BillService,public router:Router, public orderSer:OrderServiceService) { }
 
   ngOnInit(): void {
 
@@ -35,7 +36,7 @@ constructor(public billService : BillService,public router:Router) { }
 
   onPressProceed(cust_id:any){
       this.router.navigate(["customerbill"]);
-      console.log(this.customer.cust_id);
+     // console.log(this.customer.cust_id);
       this.billService.findBillbyCustId(cust_id).subscribe(result=>this.msg=result);
   }
 
@@ -52,6 +53,7 @@ constructor(public billService : BillService,public router:Router) { }
   onPressDelete(bill_id:any){
     console.log(bill_id);
     this.billService.deleteBillInfo(bill_id).subscribe(result=>this.msg=result);
+    this.orderSer.deleteOrders(bill_id).subscribe(result=>this.msg=result);
     window.location.reload();
   }
 }

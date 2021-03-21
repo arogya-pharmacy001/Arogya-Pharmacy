@@ -68,8 +68,15 @@ public class StockService {
 	{
 		Optional<Stock> op = stockRepository.findById(sk.getStock_id());
 		if(op.isPresent())
-		{    
-			stockRepository.saveAndFlush(sk);
+			
+		{    float k= sk.getPrice();
+		int k1=sk.getStock_id();
+		System.out.println(k);
+			//stockRepository.saveAndFlush(sk);
+			//sk.setPrice(k);
+		
+		stockdao.upd(k, k1);
+		
 			return " Product Updated ";
 		}
 		else

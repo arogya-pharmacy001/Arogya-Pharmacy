@@ -56,10 +56,15 @@ public class BillController {
 	
 	@PostMapping(value="cart",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public int addToCart(@RequestBody cart ct)
+	{int res= billService.addToBillTable(ct);
+	if(res==2)
 	{
-		int res= billService.addToBillTable(ct);
+		return 0;
+	}
+		else {
+		
 		return res;
-	
+	}
 	}
 	@GetMapping(value="findcust/{cust_id}",produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<Bill> getBillbyCustID(@PathVariable("cust_id") int cust_id) {

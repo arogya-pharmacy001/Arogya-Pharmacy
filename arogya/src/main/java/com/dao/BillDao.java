@@ -28,7 +28,10 @@ public class BillDao {
 		int c_id=c.getCid();
 		int b_id=c.getBid();
 		Stock s=emf.find(Stock.class, b_id);
-		if(s==null)
+		
+	//	private Date dateoperation = new java.sql.Date(new java.util.Date)
+		
+		if(s.getQuantity()<1)
 		{
 			return 2;
 		}
@@ -49,6 +52,19 @@ public class BillDao {
 			.setParameter(4, 1)
 			.setParameter(5, custid)
 			.executeUpdate();
+			
+			
+			//new part
+			
+			String INSERT_SQL1 = "insert into orders values(?1,?2,?3,?4,?5,?6)";
+			emf.createNativeQuery(INSERT_SQL1).setParameter(1, null)
+			.setParameter(2, 1)
+			.setParameter(3, amt)
+			.setParameter(4, b_id)
+			.setParameter(5, custid)
+			.setParameter(6, "2021-03-22")
+			.executeUpdate();
+		
 			
 			emf.getTransaction().commit();
 			emf.close();

@@ -23,13 +23,13 @@ return this.httpClient.post("http://localhost:9191/medstock/insert",StockRef,{re
   }
 
 updateStock(StockRef:any):Observable<string>{
-   this.httpClient.put("http://localhost:9191/medstock/update",StockRef).subscribe(data1=>console.log(data1));
+  // this.httpClient.put("http://localhost:9191/medstock/update",StockRef).subscribe(data1=>console.log(data1));
 return this.httpClient.put("http://localhost:9191/medstock/update",StockRef,{responseType:'text'})
   }
 
 deleteStock(id:number):Observable<string>
 {
-  this.httpClient.delete("http://localhost:9191/medstock/delete/"+id).subscribe(q=>console.log(q));
+ // this.httpClient.delete("http://localhost:9191/medstock/delete/"+id).subscribe(q=>console.log(q));
   return this.httpClient.delete("http://localhost:9191/medstock/delete/"+id,{responseType:'text'})
 }  
 

@@ -1,6 +1,7 @@
+<app-admin-dashboard></app-admin-dashboard>
 <div>
-    <h2 class=header>Order Table</h2><div>
-    <input type="button" value="display orders" (click)="loadData()">
+    <h2 class=header>Order Table</h2>
+   
     <div *ngIf="flag">
    <!-- <table border=1>-->
     <table id="bills">
@@ -23,7 +24,9 @@
 
     </table>
 </div>
-</div>
+
 <br>
-    <input type="button" value="Back" (click)="onpress()">
+<div class="text-center py-4">
+    <button  class="btn btn-secondary" value="Back" (click)="onpress()">Back</button>
+</div>
 </div>
