@@ -130,13 +130,16 @@ onClickHome(){
             else 
           
              if(desig=="admin" )
-            {
+            { if(user=="Admin" && pass=="123456"){
                 console.log(obj);
                 this.customer1=obj;
                 sessionStorage.setItem("customer",JSON.stringify(obj));
                 this.router.navigate(["adminDashboard"]);
               }
-              
+              else{
+                console.log("Invalid Admin Credentials")
+              }
+            }
           }
         })
       }

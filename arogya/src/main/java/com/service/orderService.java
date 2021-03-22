@@ -64,7 +64,7 @@ public class orderService {
 		if(OR.existsById(oid))
 		{
 			OR.deleteById(oid);
-			return "record deleted";
+			return "Record deleted";
 		}
 		else
 		{
