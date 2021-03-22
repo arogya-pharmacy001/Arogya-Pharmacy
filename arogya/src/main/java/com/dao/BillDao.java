@@ -20,10 +20,14 @@ public class BillDao {
 	@Autowired
 	EntityManagerFactory fact;
 	
+	@Autowired
+	EntityManagerFactory fac;
+	
 	public int addToBill(cart c)
 	{
 		
 		EntityManager emf=fact.createEntityManager();
+		EntityManager em=fac.createEntityManager();
 		
 		int c_id=c.getCid();
 		int b_id=c.getBid();
@@ -52,7 +56,7 @@ public class BillDao {
 			.setParameter(4, 1)
 			.setParameter(5, custid)
 			.executeUpdate();
-			
+			emf.getTransaction().commit();
 			
 			//new part
 			
@@ -65,10 +69,11 @@ public class BillDao {
 			.setParameter(6, "2021-03-22")
 			.executeUpdate();
 		
-			
 			emf.getTransaction().commit();
 			emf.close();
-			
+			/*em.getTransaction().commit();
+			em.close();
+			*/
 			/*
 	
 			int billid=n;
